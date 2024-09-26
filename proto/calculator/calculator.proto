@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/vshulcz/grpc-protos/gen/go/calculator";
+
+service Calculator {
+  rpc Add (NumbersRequest) returns (OperationResponse);
+  rpc Subtract (NumbersRequest) returns (OperationResponse);
+  rpc Multiply (NumbersRequest) returns (OperationResponse);
+  rpc Divide (NumbersRequest) returns (OperationResponse);
+}
+
+message NumbersRequest {
+  float number1 = 1; // The first number to operate on
+  float number2 = 2; // The second number to operate on
+}
+
+message OperationResponse {
+  float result = 1; // The result of the operation 
+}
